@@ -28,6 +28,8 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
     valid: [
         { code: "<button aria-label='button-label'><svg></svg></button>" },
         { code: '<button>hello world</button>' },
+        { code: '<CustomButtonComponent>hello world</CustomButtonComponent>' },
+        { code: '<CustomButtonComponent aria-label="an aria-label"><svg></svg></CustomButtonComponent>' },
     ],
 
     invalid: [
