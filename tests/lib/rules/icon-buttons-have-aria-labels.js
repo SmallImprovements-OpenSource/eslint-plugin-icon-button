@@ -10,6 +10,7 @@
 
 const rule = require('../../../lib/rules/icon-buttons-have-aria-labels');
 const RuleTester = require('eslint').RuleTester;
+const ERROR_MSG = require('../../../constants');
 
 const parserOptions = {
     ecmaVersion: 6,
@@ -22,9 +23,6 @@ const parserOptions = {
 // Tests
 //------------------------------------------------------------------------------
 
-const BUTTON_NO_TEXT = 'button should have text';
-const BUTTON_SVG = 'icon buttons need aria-label';
-
 var ruleTester = new RuleTester({ parserOptions });
 ruleTester.run('icon-buttons-have-aria-labels', rule, {
     valid: [
@@ -35,19 +33,11 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
     invalid: [
         {
             code: '<button><svg></svg></button>',
-            errors: [
-                {
-                    message: BUTTON_SVG,
-                },
-            ],
+            errors: [{ message: ERROR_MSG.BUTTON_SVG }],
         },
         {
             code: '<button><svg /></button>',
-            errors: [
-                {
-                    message: BUTTON_SVG,
-                },
-            ],
+            errors: [{ message: ERROR_MSG.BUTTON_SVG }],
         },
     ],
 });
