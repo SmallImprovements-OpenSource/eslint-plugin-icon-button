@@ -41,5 +41,9 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
             code: '<button><svg /></button>',
             errors: [{ message: ERROR_MSG.BUTTON_SVG }],
         },
+        {
+            code: '<CustomButtonComponent aria-label="abc"><svg></svg></CustomButtonComponent>',
+            errors: [{ message: ERROR_MSG.NO_STUPID_ARIA_LABELS }],
+        },
     ],
 });
