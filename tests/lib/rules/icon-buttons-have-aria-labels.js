@@ -1,6 +1,6 @@
 /**
- * @fileoverview Buttons that only have icons should have an alternative aria-label
- * @author
+ * @fileoverview Report when a button component or element contains an SVG icon without accompanying text or aria-label
+ * @author Charisse De Torres
  */
 'use strict';
 
