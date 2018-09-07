@@ -52,9 +52,9 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
             code: '<Button>      <SomeIconComponent/></Button>',
             errors: [{ message: 'create element error' }],
         },
-        // {
-        //     code: '<Button aria-label=""><SomeIconComponent/></Button>',
-        //     errors: [{ message: 'no stupid labels' }],
-        // },
+        {
+            code: '<Button aria-label=""><SomeIconComponent/></Button>',
+            errors: [{ message: 'no stupid labels' }],
+        },
     ],
 });
