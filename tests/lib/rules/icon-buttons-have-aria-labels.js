@@ -29,7 +29,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         // { code: "<button aria-label='button-label'><svg></svg></button>" }, NO
         { code: '<button>hello world</button>' },
         { code: '<Button>hello world</Button>' },
-        // { code: '<MyComponent aria-label="an aria-label"><SomeIconComponent/></MyComponent>' }, NO
+        { code: '<Button aria-label="an aria-label"><SomeIconComponent/></Button>' },
         { code: 'React.createElement("button", { "aria-label": "button label"}, "hello world")' },
         { code: 'React.createElement("button", { type: "button" }, "hello world")' },
     ],
