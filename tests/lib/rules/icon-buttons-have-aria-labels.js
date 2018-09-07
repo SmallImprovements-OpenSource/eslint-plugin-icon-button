@@ -26,24 +26,31 @@ const parserOptions = {
 var ruleTester = new RuleTester({ parserOptions });
 ruleTester.run('icon-buttons-have-aria-labels', rule, {
     valid: [
-        { code: "<button aria-label='button-label'><svg></svg></button>" },
+        // { code: "<button aria-label='button-label'><svg></svg></button>" }, NO
         { code: '<button>hello world</button>' },
-        { code: '<CustomButtonComponent>hello world</CustomButtonComponent>' },
-        { code: '<CustomButtonComponent aria-label="an aria-label"><svg></svg></CustomButtonComponent>' },
+        { code: '<Button>hello world</Button>' },
+        // { code: '<MyComponent aria-label="an aria-label"><SomeIconComponent/></MyComponent>' }, NO
+        { code: 'React.createElement("button", { "aria-label": "button label"}, "hello world")' },
+        { code: 'React.createElement("button", { type: "button" }, "hello world")' },
     ],
 
     invalid: [
         {
-            code: '<button><svg></svg></button>',
-            errors: [{ message: ERROR_MSG.BUTTON_SVG }],
+            code: '<Button><SomeIconComponent/></Button>',
+            errors: [{ message: 'create element error' }],
         },
         {
-            code: '<button><svg /></button>',
-            errors: [{ message: ERROR_MSG.BUTTON_SVG }],
+            code: 'React.createElement("button")',
+            errors: [{ message: 'create element error' }],
         },
         {
-            code: '<CustomButtonComponent aria-label="abc"><svg></svg></CustomButtonComponent>',
-            errors: [{ message: ERROR_MSG.NO_STUPID_ARIA_LABELS }],
+            code: 'React.createElement("button", {}, <svg></svg>)',
+            errors: [{ message: 'create element error' }],
+        },
+
+        {
+            code: '<Button>      <SomeIconComponent/></Button>',
+            errors: [{ message: 'create element error' }],
         },
     ],
 });
