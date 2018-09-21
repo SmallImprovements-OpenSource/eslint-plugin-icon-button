@@ -36,6 +36,15 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
 
     invalid: [
         {
+            code: '<button></button>',
+            errors: [{ message: 'No empty buttons' }],
+        },
+        {
+            code: '<Button></Button>',
+            errors: [{ message: 'No empty buttons' }],
+        },
+
+        {
             code: '<Button><SomeIconComponent/></Button>',
             errors: [{ message: 'No buttons that contains only icons.' }],
         },
