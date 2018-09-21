@@ -37,7 +37,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
     invalid: [
         {
             code: '<Button><SomeIconComponent/></Button>',
-            errors: [{ message: 'create element error' }],
+            errors: [{ message: 'No buttons that contains only icons.' }],
         },
         {
             code: 'React.createElement("button")',
@@ -54,7 +54,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         },
         {
             code: '<Button aria-label=""><SomeIconComponent/></Button>',
-            errors: [{ message: 'no stupid labels' }],
+            errors: [{ message: 'No stupid labels' }],
         },
     ],
 });
