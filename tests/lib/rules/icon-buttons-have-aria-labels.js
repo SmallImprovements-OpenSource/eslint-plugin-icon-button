@@ -27,27 +27,44 @@ var ruleTester = new RuleTester({ parserOptions });
 ruleTester.run('icon-buttons-have-aria-labels', rule, {
     valid: [
         // { code: "<button aria-label='button-label'><svg></svg></button>" }, NO
+        // html
         { code: '<button>hello world</button>' },
+
+        // jsx
         { code: '<Button>hello world</Button>' },
         { code: '<Button aria-label="an aria-label"><SomeIconComponent/></Button>' },
+
+        // React.createElement
         { code: 'React.createElement("button", { "aria-label": "button label"}, "hello world")' },
         { code: 'React.createElement("button", { type: "button" }, "hello world")' },
     ],
 
     invalid: [
+        // html
         {
             code: '<button></button>',
             errors: [{ message: 'No empty buttons' }],
         },
+
+        // jsx
         {
             code: '<Button></Button>',
             errors: [{ message: 'No empty buttons' }],
         },
-
         {
             code: '<Button><SomeIconComponent/></Button>',
             errors: [{ message: 'No buttons that contains only icons.' }],
         },
+        {
+            code: '<Button aria-label=""><SomeIconComponent/></Button>',
+            errors: [{ message: 'No stupid labels' }],
+        },
+        {
+            code: '<Button>      <SomeIconComponent/></Button>',
+            errors: [{ message: 'create element error' }],
+        },
+
+        // React.createElement
         {
             code: 'React.createElement("button")',
             errors: [{ message: 'create element error' }],
@@ -55,15 +72,6 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         {
             code: 'React.createElement("button", {}, <svg></svg>)',
             errors: [{ message: 'create element error' }],
-        },
-
-        {
-            code: '<Button>      <SomeIconComponent/></Button>',
-            errors: [{ message: 'create element error' }],
-        },
-        {
-            code: '<Button aria-label=""><SomeIconComponent/></Button>',
-            errors: [{ message: 'No stupid labels' }],
         },
     ],
 });
