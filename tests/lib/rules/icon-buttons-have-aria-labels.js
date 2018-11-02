@@ -34,10 +34,6 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
     invalid: [
         // jsx
         {
-            code: '<Button></Button>',
-            errors: [{ message: 'No empty buttons' }],
-        },
-        {
             code: '<Button><SomeIconComponent/></Button>',
             errors: [{ message: 'No buttons that contain only icons. Please add an aria-label.' }],
         },
