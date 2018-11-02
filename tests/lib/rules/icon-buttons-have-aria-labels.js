@@ -27,7 +27,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
     valid: [
         // jsx
         { code: '<Button>hello world</Button>' },
-        { code: '<Button aria-label="an aria-label"><SomeIconComponent/></Button>' },
+        { code: '<Button aria-label="an aria-label that describes something"><SomeIconComponent/></Button>' },
         { code: '<Button>\n<SomeIconComponent/> hello</Button>' },
     ],
 
@@ -40,6 +40,10 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         {
             code: '<Button aria-label=""><SomeIconComponent/></Button>',
             errors: [{ message: 'No empty aria-label' }],
+        },
+        {
+            code: '<Button aria-label="short label"><SomeIconComponent/></Button>',
+            errors: [{ message: 'Please provide a more descriptive aria-label.' }],
         },
     ],
 });
