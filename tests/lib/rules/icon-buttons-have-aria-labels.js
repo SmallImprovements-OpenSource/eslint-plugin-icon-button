@@ -40,7 +40,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         },
         {
             code: '<Button><SomeIconComponent/></Button>',
-            errors: [{ message: 'No buttons that contains only icons.' }],
+            errors: [{ message: 'No buttons that contain only icons. Please add an aria-label.' }],
         },
         {
             code: '<Button aria-label=""><SomeIconComponent/></Button>',
