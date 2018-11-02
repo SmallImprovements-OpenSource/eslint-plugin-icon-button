@@ -10,7 +10,6 @@
 
 const rule = require('../../../lib/rules/icon-buttons-have-aria-labels');
 const RuleTester = require('eslint').RuleTester;
-const yay = 'what';
 
 const parserOptions = {
     ecmaVersion: 6,
