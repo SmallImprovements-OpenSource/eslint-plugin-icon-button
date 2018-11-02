@@ -26,10 +26,6 @@ const parserOptions = {
 var ruleTester = new RuleTester({ parserOptions });
 ruleTester.run('icon-buttons-have-aria-labels', rule, {
     valid: [
-        // { code: "<button aria-label='button-label'><svg></svg></button>" }, NO
-        // html
-        { code: '<button>hello world</button>' },
-
         // jsx
         { code: '<Button>hello world</Button>' },
         { code: '<Button aria-label="an aria-label"><SomeIconComponent/></Button>' },
@@ -37,12 +33,6 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
     ],
 
     invalid: [
-        // html
-        {
-            code: '<button></button>',
-            errors: [{ message: 'No empty buttons' }],
-        },
-
         // jsx
         {
             code: '<Button></Button>',
