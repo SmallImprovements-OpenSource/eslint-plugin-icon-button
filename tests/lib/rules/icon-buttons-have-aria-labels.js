@@ -33,10 +33,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         // jsx
         { code: '<Button>hello world</Button>' },
         { code: '<Button aria-label="an aria-label"><SomeIconComponent/></Button>' },
-
-        // React.createElement
-        { code: 'React.createElement("button", { "aria-label": "button label"}, "hello world")' },
-        { code: 'React.createElement("button", { type: "button" }, "hello world")' },
+        { code: '<Button>\n<SomeIconComponent/> hello</Button>' },
     ],
 
     invalid: [
@@ -57,21 +54,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         },
         {
             code: '<Button aria-label=""><SomeIconComponent/></Button>',
-            errors: [{ message: 'No stupid labels' }],
-        },
-        {
-            code: '<Button>      <SomeIconComponent/></Button>',
-            errors: [{ message: 'create element error' }],
-        },
-
-        // React.createElement
-        {
-            code: 'React.createElement("button")',
-            errors: [{ message: 'create element error' }],
-        },
-        {
-            code: 'React.createElement("button", {}, <svg></svg>)',
-            errors: [{ message: 'create element error' }],
+            errors: [{ message: 'No empty aria-label' }],
         },
     ],
 });
