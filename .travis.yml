@@ -3,4 +3,6 @@ node_js:
     - 9
     - 10
 install: npm install
-script: npm test
+script:
+    - ./node_modules/.bin/eslint .
+    - npm test
