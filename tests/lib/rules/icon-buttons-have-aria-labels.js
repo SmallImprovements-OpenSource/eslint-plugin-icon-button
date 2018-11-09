@@ -29,6 +29,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
         { code: '<Button>hello world</Button>' },
         { code: '<Button aria-label="an aria-label that describes something"><SomeIconComponent/></Button>' },
         { code: '<Button>\n<SomeIconComponent/> hello</Button>' },
+        { code: '<Button><SomeIconComponent/> {expression}</Button>' },
     ],
 
     invalid: [
