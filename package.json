@@ -1,18 +1,25 @@
 {
     "name": "eslint-plugin-icon-button",
     "version": "1.0.0",
-    "description": "",
+    "description": "Eslint plugin for icon buttons. Makes sure that icon buttons that contain only icons have aria-labels",
+    "keywords": [
+        "eslint",
+        "icon button",
+        "small improvements",
+        "accessibility",
+        "a11y"
+    ],
     "main": "index.js",
     "directories": {
-        "doc": "docs",
         "lib": "lib",
         "test": "tests"
     },
     "scripts": {
         "test": "mocha ./tests/**/*.js"
     },
-    "author": "",
-    "license": "ISC",
+    "author": "Charisse De Torres",
+    "license": "MIT",
+    "repository": "SmallImprovements-OpenSource/eslint-plugin-icon-button",
     "dependencies": {
         "jsx-ast-utils": "^2.0.1"
     },
