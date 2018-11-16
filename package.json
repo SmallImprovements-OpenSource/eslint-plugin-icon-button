@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-icon-button",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Eslint plugin for icon buttons. Makes sure that icon buttons that contain only icons have aria-labels",
     "keywords": [
         "eslint",
