@@ -24,7 +24,7 @@ This linter identifies components inside a `Button` that contain a substring `Ic
 
 ## Succeed
 
-```
+```js
 <Button>hello world</Button>
 <Button aria-label="an aria-label that describes something">
     <IconComponent />
@@ -36,7 +36,7 @@ This linter identifies components inside a `Button` that contain a substring `Ic
 
 ## Fail
 
-```
+```js
 <Button>
     <IconComponent/>
 </Button>
