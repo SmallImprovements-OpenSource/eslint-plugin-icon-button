@@ -43,7 +43,7 @@ This linter identifies components inside a `Button` that contain a substring `Ic
 <Button aria-label="">
     <IconComponent/>
 </Button>
-<Button aria-label="short label">
+<Button aria-label="label"> // needs to be at least 2 words
     <IconComponent/>
 </Button>
 ```

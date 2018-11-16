@@ -43,7 +43,7 @@ ruleTester.run('icon-buttons-have-aria-labels', rule, {
             errors: [{ message: 'No empty aria-label' }],
         },
         {
-            code: '<Button aria-label="short label"><SomeIconComponent/></Button>',
+            code: '<Button aria-label="label"><SomeIconComponent/></Button>',
             errors: [{ message: 'Please provide a more descriptive aria-label.' }],
         },
     ],
